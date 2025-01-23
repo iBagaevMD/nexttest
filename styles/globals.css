@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    background-color: #080808;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.leftside-height {
+    height: calc(100vh - 92px);
+}
+
+
+.btn-gradient {
+    background: linear-gradient(90deg, #E58947 0%, #F14444 100%);
+}
+
+.page-background {
+    background: linear-gradient(90deg, #E58947 0%, #F14444 100%);
+}
+
+.logo-btn-gradient {
+    background: linear-gradient(74.22deg, #00BDF9 15.42%, #00F99B 57.8%, #E5F900 120.54%);
+}
+
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
+input {
+    color: white;
+    outline:none;
+}
+
+button {
+    outline:none;
+}
+
+input:hover, input:focus {
+    background: rgba(255,255,255, .01);
+    border-color: rgba(255,255,255, .2);
+}
+
+input::placeholder {
+    color: rgba(255,255,255, .5);
+}
+
+.bgBlur {
+    filter: blur(10px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+@media (max-width: 992px) {
+    .modal {
+        height: 96vh;
+        top: auto;
+        bottom: 0;
+        transform: translate(-50%, 0);
+    }
+}
+
+.opacityBackgroundBlurClass {
+    background: var(--stroke-110, rgba(255, 255, 255, 0.10));
+    backdrop-filter: blur(50px);
+}
+
+.header-bg {
+    background: rgba(8, 8, 8, 0.80);
+}
+
+.cookiesAlert {
+    background: var(--overlay-1, rgba(255, 255, 255, 0.10));
+    backdrop-filter: blur(50px);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.shadow-roadmap {
+    background: linear-gradient(90deg, #E58947 0%, #F14444 100%);
+}
+
+@media (max-width: 991px) {
+    .shadow-roadmap {
+        background: linear-gradient(180deg, #E58947 0%, #F14444 100%);
+    }
+}
+
+.roadmap-bg {
+    background: linear-gradient(90deg, rgba(20, 21, 23, 0.00) 50%,#141517 100%),linear-gradient(181deg,rgba(255,255,255,0.05)6.59%,rgba(255,255,255,0.02)93.21%);
+
+    @media (max-width: 767px) {
+        background: linear-gradient(90deg, rgba(20, 21, 23, 0.00) 50%,#141517 100%),linear-gradient(181deg,rgba(255,255,255,0.05)6.59%,rgba(255,255,255,0.02)93.21%);
+    }
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #141517; /* background of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888; /* draggable part of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.custom-scrollbar {
+    scrollbar-color: #888 #141517;
+}
+
+.scrollable-list {
+    overflow: auto;
+    scrollbar-width: none; /* Скрываем скроллбар в Firefox */
+    -ms-overflow-style: none; /* Скрываем скроллбар в Internet Explorer 10+ */
+}
+
+.scrollable-list::-webkit-scrollbar {
+    display: none; /* Скрываем скроллбар в WebKit браузерах (Chrome, Safari, Opera) */
+}

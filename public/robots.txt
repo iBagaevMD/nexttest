@@ -1,0 +1,35 @@
+User-agent: *
+Disallow: /createToken
+Disallow: /market
+Disallow: /faq
+Disallow: /createtoken
+Disallow: /?_ym_debug=1
+Disallow: /?*
+Disallow: /mytokens
+Disallow: /trade
+Disallow: /Telegram
+Disallow: /Tel
+
+User-agent: Yandex
+Disallow: /createToken
+Disallow: /market
+Disallow: /faq
+Disallow: /createtoken
+Disallow: /?_ym_debug=1
+Disallow: /?*
+Disallow: /mytokens
+Disallow: /trade
+Disallow: /Telegram
+Disallow: /Tel
+
+User-agent: Googlebot
+Disallow: /createToken
+Disallow: /market
+Disallow: /faq
+Disallow: /createtoken
+Disallow: /?_ym_debug=1
+Disallow: /?*
+Disallow: /mytokens
+Disallow: /trade
+Disallow: /Telegram
+Disallow: /Tel
