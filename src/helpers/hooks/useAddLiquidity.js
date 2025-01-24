@@ -31,7 +31,6 @@ import {
 import { add, sub, mul } from 'utils/raydium-utils';
 import { buildInstructionFromIDL, isUserRejectedError } from 'utils/utils';
 import { ammConfig10000 } from 'utils/amm-configs';
-
 import TOKEN_DEPLOYER_IDL from 'idls/token_deployer.json';
 import {
   PROGRAM_ID,
@@ -41,7 +40,7 @@ import {
   FEE_RECEIVER
 } from 'config';
 import useSolanaPrice from './useSolanaPrice';
-import { COMPUTE_BUDGET_CONFIG, JSBI_95, JSBI_100 } from './constants';
+import { COMPUTE_BUDGET_CONFIG } from './constants';
 
 const useAddLiquidity = () => {
   const solPrice = useSolanaPrice();

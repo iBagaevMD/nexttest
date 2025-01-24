@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { DashboardLayout } from 'layouts/DashboardLayout';
-import MarketController from 'controllers/Solana/Market';
+import MarketController from 'controllers/Ton/Market';
 
 export default function Market() {
   return (

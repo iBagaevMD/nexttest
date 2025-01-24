@@ -6,7 +6,6 @@ import { TYPOGRAPHY_VARIANTS } from 'components/Typography/constants';
 import Button from 'components/Button';
 import { BUTTON_VARIANTS } from 'components/Button/constants';
 import TextInput from 'components/Inputs/TextInput-memeForm';
-import { useNotifications } from 'contexts/notifications';
 import { useWallet } from 'contexts/wallet';
 import { MAX_IMAGE_SIZE } from './constants';
 import ConnectWalletModal from '../Modals/ConnectWalletModal';
@@ -18,6 +17,7 @@ import {
   setIsNeedUpdateMemes
 } from 'store/userSlice';
 import { getCreateMemeData, getDailyMemesLeft } from 'store/userSlice/selectors';
+import { useNotifications } from 'contexts/notifications';
 
 const FUNCTION_TYPES = [
   {
@@ -360,7 +360,8 @@ export const MemeForm = ({ isHomePage, handleCloseModal }) => {
                 !tokenImage ||
                 !inputsValues.name?.length ||
                 !inputsValues?.symbol?.length ||
-                isSendingRequest
+                isSendingRequest ||
+                (isHomePage && !!userAddress)
               }
               onClick={handleCreateCoin}
               className="w-full"

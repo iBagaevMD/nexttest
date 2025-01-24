@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useRequest } from 'helpers/hooks/useRequest';
 import { PAGE_SIZE } from './constants';
 import { TonRepository } from 'connectors/repositories/ton';
-import MemeList from 'components/MemeList';
+import TonMemeList from 'components/TonMemeList';
 
 const MarketController = () => {
   const currentPage = useRef(0);
@@ -35,7 +35,7 @@ const MarketController = () => {
   }, []);
 
   return (
-    <MemeList
+    <TonMemeList
       data={data}
       onLoadMore={onLoadMore}
       isShowLoadingButton={isShowLoadingButton}

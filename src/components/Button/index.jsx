@@ -30,7 +30,7 @@ const Button = ({ text, isLoading, variant, className, isDisabled, type, ...prop
       )}
       {...props}>
       {isLoading ? (
-        <img className="animate-spin" src="/loadingIcon.png" alt="loading button icon" />
+        <img className="animate-spin" src="/icons/loadingIcon.png" alt="loading button icon" />
       ) : (
         <span>{text}</span>
       )}

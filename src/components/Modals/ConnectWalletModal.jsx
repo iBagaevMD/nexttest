@@ -66,7 +66,9 @@ const ConnectWalletModal = ({ isOpened, setOpened, isOnlySolana }) => {
                     ]}
                   />
                 )}
-                {currentWallet === 'SOLANA' && <ConnectSolanaWallets setOpened={setOpened} />}
+                {currentWallet === 'SOLANA' && (
+                  <ConnectSolanaWallets isOnlySolana={isOnlySolana} setOpened={setOpened} />
+                )}
                 {currentWallet === 'TON' && <ConnectTonWallets setOpened={setOpened} />}
               </div>
             </div>

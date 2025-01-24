@@ -1,7 +1,7 @@
 import { Address } from '@ton/core';
 import { JettonWallet } from 'contracts/JettonWallet';
 import { JettonMinter } from 'contracts/JettonMinter';
-import Pool from '../../contracts/Pool';
+import Pool from 'contracts/Pool';
 import { useTonClient } from './useTonClient';
 import { useAsyncInitialize } from './useAsyncInitialize';
 import { useWallet } from 'contexts/wallet';

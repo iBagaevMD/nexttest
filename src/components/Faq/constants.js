@@ -48,7 +48,7 @@ export const INFO = [
   },
   {
     title: 'How much will it cost?',
-    desc: <span>V3 pool creation costs 0.25 sol.</span>
+    desc: <span>V3 pool creation costs 0.49 sol.</span>
   },
   {
     title: 'Where can I find my tokens?',
@@ -66,7 +66,7 @@ export const INFO = [
     title: 'Which wallet can I use?',
     desc: (
       <span>
-        Phantom, Coinbase and Solflare for SOLANA
+        Phantom and Coinbase for SOLANA
         <br /> <br />
         Tonkeeper for TON
       </span>

@@ -9,6 +9,7 @@ import { UserRepository } from 'connectors/repositories/user';
 import { useWallet } from 'contexts/wallet';
 import { setDailyMemesLeft } from 'store/userSlice';
 import { UserInfo } from 'components/Headers/UserInfo';
+import { router } from 'next/client';
 
 export const DashboardLayout = ({ children }) => {
   const { route } = useRouter();
@@ -16,6 +17,14 @@ export const DashboardLayout = ({ children }) => {
   const dispatch = useDispatch();
   const { call, data } = useRequest(UserRepository.getUserDetails);
   const isSolanaChain = route.includes('solana');
+
+  useEffect(() => {
+    const userWallet = sessionStorage.getItem('userWallet');
+
+    if (!userWallet) {
+      router.replace('/');
+    }
+  }, []);
 
   useEffect(() => {
     if (userAddress && isSolanaChain) {

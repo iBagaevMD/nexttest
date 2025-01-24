@@ -1,10 +1,10 @@
-import * as web3 from '@solana/web3.js';
 import { useCallback, useState } from 'react';
-import { SOLANA_ENDPOINT } from 'config';
+import * as web3 from '@solana/web3.js';
 
 import { buildComputeBudgetInstructions } from 'utils/raydium-utils';
 import { useNotifications } from 'contexts/notifications';
 import { useWallet } from 'contexts/wallet';
+import { SOLANA_ENDPOINT } from 'config';
 
 export const useTransfer = () => {
   const { signer, userAddress } = useWallet();

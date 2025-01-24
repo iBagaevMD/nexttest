@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import * as web3 from '@solana/web3.js';
+
 import { SOLANA_ENDPOINT } from 'config';
 
 const DEFAULT_TIMEOUT_MS = 60_000; // 60s

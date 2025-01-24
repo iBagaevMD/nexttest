@@ -22,16 +22,6 @@ export const WalletProvider = ({ children }) => {
   const [signer, setSigner] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setTonConnector(
-        new TonConnect({
-          manifestUrl: getManifestForActualStand()
-        })
-      );
-    }
-  }, []);
-
   const setProvider = (provider) => {
     setNetwork(provider);
     setSigner(window[provider]);
@@ -54,14 +44,6 @@ export const WalletProvider = ({ children }) => {
     } catch (error) {}
   };
 
-  const connectSolflare = async () => {
-    try {
-      await window.solflare.connect();
-      setUserAddress(window.solflare.publicKey.toString());
-      setProvider(WALLET_NAMES.SOLFLARE);
-    } catch (error) {}
-  };
-
   const connectCoinbase = async () => {
     try {
       await window.coinbaseSolana.connect();
@@ -76,6 +58,10 @@ export const WalletProvider = ({ children }) => {
     };
 
     try {
+      const tonConnector = new TonConnect({
+        manifestUrl: getManifestForActualStand()
+      });
+      setTonConnector(tonConnector);
       // Попытка подключения к кошельку
       await tonConnector.connect(walletConnectionSource);
       // Подписка на реактивные события у tonconnect sdk
@@ -99,7 +85,6 @@ export const WalletProvider = ({ children }) => {
 
   const walletConnectors = {
     [WALLET_TYPES.PHANTOM]: connectPhantom,
-    [WALLET_TYPES.SOLFLARE]: connectSolflare,
     [WALLET_TYPES.COINBASE]: connectCoinbase,
     [WALLET_TYPES.TONKEEPER]: connectTonkeeper
   };
@@ -132,11 +117,6 @@ export const WalletProvider = ({ children }) => {
     setUserAddress('');
   };
 
-  const disconnectSolflare = () => {
-    window.solflare.disconnect();
-    setUserAddress('');
-  };
-
   const disconnectCoinbase = async () => {
     await window.coinbaseSolana.disconnect();
     setUserAddress('');
@@ -152,10 +132,9 @@ export const WalletProvider = ({ children }) => {
   };
 
   const disconnectWallet = (type) => {
+    console.log(type, 'type');
     if (type === WALLET_TYPES.PHANTOM) {
       disconnectPhantom();
-    } else if (type === WALLET_TYPES.SOLFLARE) {
-      disconnectSolflare();
     } else if (type === WALLET_TYPES.COINBASE) {
       disconnectCoinbase();
     } else if (type === WALLET_TYPES.TONKEEPER) {

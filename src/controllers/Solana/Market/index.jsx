@@ -13,7 +13,7 @@ import {
 } from 'store/userSlice/selectors';
 import { delay } from 'helpers/delay';
 import { setIsNeedUpdateMemes } from 'store/userSlice';
-import MemeList from 'components/MemeList';
+import SolanaMemeList from 'src/components/SolanaMemeList';
 
 const MarketController = () => {
   const isNeedMapper = useRef(true);
@@ -27,7 +27,6 @@ const MarketController = () => {
   const createMemeData = useSelector(getCreateMemeData);
   const isGenerateCoinFromHomePage = useSelector(getIsGenerateCoinFromHomePage);
 
-  //@fixme Bagaev
   const requestMapper = (prev, data) => {
     if (data?.result?.length < PAGE_SIZE) setIsShowLoadingButton(false);
     if (Object.keys(prev)?.length) {
@@ -80,7 +79,7 @@ const MarketController = () => {
 
   return (
     <React.Fragment>
-      <MemeList
+      <SolanaMemeList
         data={data}
         onLoadMore={onLoadMore}
         isShowLoadingButton={isShowLoadingButton}

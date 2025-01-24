@@ -1,5 +1,5 @@
-export const IS_DEV = false;
-const IS_DEV_API = false;
+export const IS_DEV = true;
+const IS_DEV_API = true;
 // const IS_DEV_API = window.location.hostname !== 'www.rocketlauncher.gg';
 
 const MAIN_SOLANA_ENDPOINT = 'https://emera-upzvpf-fast-mainnet.helius-rpc.com';

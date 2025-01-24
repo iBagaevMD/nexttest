@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { SOLANA_ROCKET_API_URL } from 'src/config';
+import { SOLANA_ROCKET_API_URL } from 'config';
 
 import { useNotifications } from 'contexts/notifications';
 import { useSnackbar } from 'notistack';

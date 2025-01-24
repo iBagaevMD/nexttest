@@ -1,8 +1,9 @@
-import Pool from '../../contracts/Pool';
+import { beginCell, Address } from '@ton/core';
+
+import Pool from 'contracts/Pool';
 import { useTonClient } from './useTonClient';
 import { useAsyncInitialize } from './useAsyncInitialize';
 import { useWallet } from 'contexts/wallet';
-import { beginCell, Address } from '@ton/core';
 
 const poolContractCache = {};
 

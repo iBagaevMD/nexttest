@@ -7,7 +7,7 @@ import { UserRepository } from 'connectors/repositories/user';
 import { PAGE_SIZE } from './constants';
 import { getIsNeedUpdateMemes } from 'store/userSlice/selectors';
 import { setIsNeedUpdateMemes } from 'store/userSlice';
-import MemeList from 'components/MemeList';
+import SolanaMemeList from 'src/components/SolanaMemeList';
 
 const TokensController = () => {
   const isNeedMapper = useRef(true);
@@ -57,7 +57,7 @@ const TokensController = () => {
   }, []);
 
   return (
-    <MemeList
+    <SolanaMemeList
       data={data}
       onLoadMore={onLoadMore}
       isShowLoadingButton={isShowLoadingButton}

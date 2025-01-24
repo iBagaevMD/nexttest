@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { SOLANA_ROCKET_API_URL } from 'src/config';
+import { SOLANA_ROCKET_API_URL } from 'config';
 
 const useMemeStatus = () => {
   async function doUpdateMemeStatus(data) {

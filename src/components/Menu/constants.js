@@ -8,7 +8,7 @@ export const SOLANA_MENU_LIST = {
     {
       icon: '/menu/menu.svg',
       title: 'My Memes',
-      link: '/solana//tokens'
+      link: '/solana/tokens'
     }
   ],
   Create: [

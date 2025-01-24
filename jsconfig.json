@@ -7,10 +7,14 @@
       "controllers/*": ["./src/controllers/*"],
       "layouts/*": ["./src/layouts/*"],
       "connectors/*": ["./src/connectors/*"],
+      "contracts/*": ["./src/contracts/*"],
       "contexts/*": ["./src/contexts/*"],
       "helpers/*": ["./src/helpers/*"],
       "store/*": ["./src/store/*"],
-      "theme": ["./src/theme"]
+      "idls/*": ["./src/idls/*"],
+      "utils/*": ["./src/utils/*"],
+      "theme": ["./src/theme"],
+      "config": ["./src/config"]
     }
   }
 }

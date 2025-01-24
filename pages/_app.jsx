@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
 import '../styles/globals.css';
@@ -10,9 +10,17 @@ import Notification from 'components/Notification';
 import CookieLayout from 'layouts/CookieLayout';
 import theme from 'theme';
 
-function MyApp({ Component, pageProps }) {
+const CustomSnackbar = React.forwardRef((props, ref) => {
+  const { id, ...rest } = props;
+  return (
+    <div ref={ref}>
+      <Notification id={id} notification={rest} />
+    </div>
+  );
+});
+
+const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
-    // Создаем элемент portal-root, если его нет
     if (!document.getElementById('portal-root')) {
       const portalRoot = document.createElement('div');
       portalRoot.setAttribute('id', 'portal-root');
@@ -25,14 +33,15 @@ function MyApp({ Component, pageProps }) {
       <WalletProvider>
         <CookieLayout>
           <SnackbarProvider
-            className="top-[70px]"
             maxSnack={6}
             anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-            content={(key, data) => (
-              <div>
-                <Notification id={key} notification={data} />
-              </div>
-            )}>
+            Components={{
+              default: CustomSnackbar,
+              success: CustomSnackbar,
+              error: CustomSnackbar,
+              warning: CustomSnackbar,
+              info: CustomSnackbar
+            }}>
             <NotificationsProvider>
               <Component {...pageProps} />
             </NotificationsProvider>

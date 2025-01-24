@@ -4,7 +4,7 @@ import { JettonFactory } from 'contracts/JettonFactory';
 import { useTonClient } from './useTonClient';
 import { useAsyncInitialize } from './useAsyncInitialize';
 import { useWallet } from 'contexts/wallet';
-import { TON_CONTRACT_ADDRESS } from '../../config';
+import { TON_CONTRACT_ADDRESS } from 'config';
 
 export function useFactoryContract() {
   const { tonConnector, userAddress } = useWallet();

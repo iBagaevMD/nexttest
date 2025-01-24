@@ -5,8 +5,9 @@ import { TYPOGRAPHY_VARIANTS } from 'components/Typography/constants';
 import { getSolanaWalletsForConnect } from 'components/Modals/constants';
 import { useWallet } from 'contexts/wallet';
 import { useBlurBackground } from 'helpers/hooks/useBlurBackground';
+import { router } from 'next/client';
 
-const ConnectSolanaWallets = ({ setOpened }) => {
+const ConnectSolanaWallets = ({ setOpened, isOnlySolana }) => {
   const { connectWallet, disconnectWallet } = useWallet();
   const { resetBlurBackground } = useBlurBackground();
 
@@ -15,6 +16,9 @@ const ConnectSolanaWallets = ({ setOpened }) => {
       setOpened(false);
       item?.func();
       resetBlurBackground();
+      if (isOnlySolana) {
+        router.push('/solana/market');
+      }
     };
 
     return (
