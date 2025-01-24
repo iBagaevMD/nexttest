@@ -32,7 +32,7 @@ export const MainLayout = ({ isAvailable = true, pageType = '', children }) => {
           />
         )}
         <HeaderMain />
-        <div className="max-w-[1116px] w-full flex flex-col items-center justify-start z-[1]">
+        <div className="max-w-[1116px] w-full flex flex-col items-center justify-start z-[1] space-y-[120px] sm:space-y-[80px]">
           {isAvailable ? children : disabledContent()}
         </div>
         <Footer />

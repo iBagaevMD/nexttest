@@ -56,11 +56,11 @@ export const UserInfo = () => {
   };
 
   return (
-    <div className="w-full flex relative items-center justify-end text-white">
+    <div ref={ref} className="w-full flex relative items-center justify-end text-white">
       {userAddress ? (
         <div
           onClick={() => setIsOpenMenu((prev) => !prev)}
-          className="w-full p-[14px] flex items-center rounded-[20px] bg-white-50 cursor-pointer hover:opacity-60 sm:hidden">
+          className="min-w-[162px] w-fit p-1 pr-2 flex items-center rounded-[100px] bg-white-100 cursor-pointer hover:opacity-60 sm:hidden">
           <img
             className="h-[36px] w-[36px] mr-1 rounded-[20px]"
             src={headerAvatar}
@@ -83,27 +83,27 @@ export const UserInfo = () => {
 
       <div
         onClick={() => setIsOpenMenu((prev) => !prev)}
-        className="hidden sm:flex ml-1 p-1 items-center justify-center rounded-[100px] bg-white-100">
+        className="hidden sm:flex cursor-pointer flex ml-1 p-1 items-center justify-center rounded-[100px] bg-white-100  hover:opacity-60">
         {isOpenMenu ? (
           <img className="h-[36px] w-[36px]" src="/icons/closeIcon.svg" alt="header menu icon" />
         ) : (
           <img className="h-[36px] w-[36px]" src="/icons/menuIcon.png" alt="header menu icon" />
         )}
       </div>
-
       {isOpenMenu && (
-        <div
-          ref={ref}
-          className="sm:hidden absolute z-50 top-[80px] sm:left-auto sm:top-[60px] rounded-[24px] w-[232px] opacityBackgroundBlurClass py-3 px-4 flex flex-col">
-          <div onClick={onDashboardClick} className="flex mt-2 cursor-pointer items-center">
-            <img className="h-[24px] w-[24px]" src="/icons/logOutIcon.png" alt="logout icon" />
-            <Typography
-              className="ml-3 text-white"
-              text="To Dashboard"
-              variant={TYPOGRAPHY_VARIANTS.BODY_M}
-            />
-          </div>
-          <div className="flex cursor-not-allowed mt-6 items-center">
+        <div  
+          className="absolute z-50 top-16 right-0 rounded-[24px] w-[232px] opacityBackgroundBlurClass py-5 px-4 flex flex-col">
+          {router.pathname.split('/')[2] !== 'market' && (
+            <div onClick={onDashboardClick} className="flex mt-2 mb-6 cursor-pointer items-center">
+              <img className="h-[24px] w-[24px]" src="/icons/logOutIcon.png" alt="logout icon" />
+              <Typography
+                className="ml-3 text-white"
+                text="To Dashboard"
+                variant={TYPOGRAPHY_VARIANTS.BODY_M}
+              />
+            </div>
+          )}
+          <div className="flex cursor-not-allowed  items-center">
             <img
               className="h-[24px] w-[24px] opacity-[0.3]"
               src="/icons/settingsIcon.png"
@@ -126,13 +126,14 @@ export const UserInfo = () => {
           </div>
         </div>
       )}
+
       {isOpenLogOutModal && (
         <LogOutModal isOpened={isOpenLogOutModal} setIsOpened={setIsOpenLogOutModal} />
       )}
       {/*{isOpenedConnectWallet && (*/}
       {/*  <ConnectWalletModal isOpened={isOpenedConnectWallet} setOpened={setIsOpenedConnectWallet} />*/}
       {/*)}*/}
-      {/*<Burger isOpened={isOpenMenu} />*/}
+      <Burger isOpened={isOpenMenu} />
     </div>
   );
 };

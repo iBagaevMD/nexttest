@@ -32,29 +32,29 @@ const MemeList = ({ data, onLoadMore, isShowLoadingButton, isLoading }) => {
 
   return (
     <React.Fragment>
-      <div className="w-full grid grid-cols-4 justify-items-center xl:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-2 sm:gap-y-2">
-        {data?.result?.map((item, index) => {
-          return (
-            <MemeCard
-              cardStyle="w-[254px]"
-              key={index}
-              {...item}
-              buttonText="View the token"
-              buttonVariant={BUTTON_VARIANTS.LARGE_WHITE_100}
-              buttonHandler={handleButtonClick(item)}
-              isShowButton={!!item?.raydiumPool?.length || !!item?.pumpfunCurve?.length}
-            />
-          );
-        })}
-      </div>
-      {isShowLoadingButton && (
-        <Button
-          className="mt-3"
-          onClick={onLoadMore}
-          variant={BUTTON_VARIANTS.TABLE_MORE}
-          text="More"
-        />
-      )}
+        <div className="w-full grid grid-cols-4 justify-items-center xl:grid-cols-3 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-2 sm:gap-y-2">
+          {data?.result?.map((item, index) => {
+            return (
+              <MemeCard
+                cardStyle="w-[254px]"
+                key={index}
+                {...item}
+                buttonText="View the token"
+                buttonVariant={BUTTON_VARIANTS.LARGE_WHITE_100}
+                buttonHandler={handleButtonClick(item)}
+                isShowButton={!!item?.raydiumPool?.length || !!item?.pumpfunCurve?.length}
+              />
+            );
+          })}
+        </div>
+        {isShowLoadingButton && (
+          <Button
+            className="mt-3"
+            onClick={onLoadMore}
+            variant={BUTTON_VARIANTS.TABLE_MORE}
+            text="More"
+          />
+        )}
     </React.Fragment>
   );
 };

@@ -8,6 +8,9 @@ import { MainLayout } from 'layouts/MainLayout';
 import { SolanaRepository } from 'connectors/repositories/solana';
 import { PAGE_SIZE } from 'components/MemeList/constants';
 
+import Typography from '@/components/Typography';
+import { TYPOGRAPHY_VARIANTS } from '@/components/Typography/constants';
+
 export const getServerSideProps = async (context) => {
   const page = context.query.page || 0;
 
@@ -25,7 +28,13 @@ const HomePage = ({ initialData }) => {
     <MainLayout>
       <Home />
       <MemeForm isHomePage />
-      <MemeList data={initialData} />
+      <div className="w-full flex flex-col">
+        <div className="flex flex-col items-center justify-center w-full mb-[60px] space-y-4 sm:space-y-1 sm:mb-6">
+          <Typography className="text-white" variant={TYPOGRAPHY_VARIANTS.HEADER_H2} text="Generation history" />
+          <Typography className="text-white-500" variant={TYPOGRAPHY_VARIANTS.BODY_L} text="People vote - we launch" />
+        </div>
+        <MemeList data={initialData} />
+      </div>
       <FaqList />
     </MainLayout>
   );

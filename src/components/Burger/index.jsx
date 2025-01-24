@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 
 import { Menu } from 'components/Menu';
 
 export const Burger = ({ isOpened = false }) => {
   useEffect(() => {
-    if (isOpened) {
+    if (isOpened && isMobile) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [isOpened]);
+  }, [isOpened, isMobile]);
 
   return (
     <div

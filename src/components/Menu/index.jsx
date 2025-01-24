@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 
-import { SOLANA_MENU_LIST, TON_MENU_LIST } from './constants';
+import { SOLANA_MENU_LIST, TON_MENU_LIST, LANDING_MENU_LIST } from './constants';
 import { GroupMenu } from './Components/GroupMenu';
 
 export const Menu = () => {
@@ -9,6 +9,9 @@ export const Menu = () => {
   const isSolanaChain = route.includes('solana');
 
   const menuList = useMemo(() => {
+    if (route === '/') {
+      return LANDING_MENU_LIST;
+    }
     if (isSolanaChain) {
       return SOLANA_MENU_LIST;
     }

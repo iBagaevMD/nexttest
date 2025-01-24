@@ -73,7 +73,7 @@ const HeaderMain = () => {
               );
             })}
           </div>
-          <div className="flex items-center justify-end w-[200px]">
+          <div className="flex items-center justify-end w-[240px]">
             {!!network ? (
               <UserInfo />
             ) : (

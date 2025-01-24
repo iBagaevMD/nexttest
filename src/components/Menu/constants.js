@@ -70,3 +70,7 @@ export const TON_MENU_LIST = {
     }
   ]
 };
+
+export const LANDING_MENU_LIST = {
+  
+};
