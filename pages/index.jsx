@@ -30,8 +30,16 @@ const HomePage = ({ initialData }) => {
       <MemeForm isHomePage />
       <div className="w-full flex flex-col">
         <div className="flex flex-col items-center justify-center w-full mb-[60px] space-y-4 sm:space-y-1 sm:mb-6">
-          <Typography className="text-white" variant={TYPOGRAPHY_VARIANTS.HEADER_H2} text="Generation history" />
-          <Typography className="text-white-500" variant={TYPOGRAPHY_VARIANTS.BODY_L} text="People vote - we launch" />
+          <Typography
+            className="text-white"
+            variant={TYPOGRAPHY_VARIANTS.HEADER_H2}
+            text="Generation history"
+          />
+          <Typography
+            className="text-white-500"
+            variant={TYPOGRAPHY_VARIANTS.BODY_L}
+            text="People vote - we launch"
+          />
         </div>
         <MemeList data={initialData} />
       </div>
