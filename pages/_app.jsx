@@ -50,6 +50,6 @@ const MyApp = ({ Component, pageProps }) => {
       </WalletProvider>
     </ThemeProvider>
   );
-}
+};
 
 export default wrapper.withRedux(MyApp);

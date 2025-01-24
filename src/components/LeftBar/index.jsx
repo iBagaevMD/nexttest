@@ -6,7 +6,7 @@ import { SocialList } from 'components/SocialList';
 const LeftBar = () => {
   return (
     <div className="z-50 sm:hidden sticky top-0 h-[100vh] flex-shrink-0 w-[280px] flex flex-col justify-between items-center text-white pt-6 px-6 py-10 space-y-9">
-      <Link className='flex flex-shrink-0 items-center hover:opacity-80' href="/">
+      <Link className="flex flex-shrink-0 items-center hover:opacity-80" href="/">
         <img className="h-[35px] sm:h-[32px]" src="/logoWithText.svg" alt="header logo" />
       </Link>
       <div className="flex-1 flex flex-col justify-between items-center w-full">
