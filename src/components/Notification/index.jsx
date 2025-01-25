@@ -7,15 +7,61 @@ import { useSnackbar } from 'notistack';
 
 import { IS_DEV } from 'config';
 
-const StyledPaper = styled(Paper)(({ theme }) => ({
+const StyledPaper = styled(Paper)(() => ({
   borderRadius: '8px'
 }));
 
-const Container = styled('div')(({ theme }) => ({
+const ContainerRed = styled('div')(({ theme }) => ({
   padding: '8px 12px 8px 12px',
   display: 'flex',
   flexGrow: 1,
-  backgroundColor: 'red',
+  backgroundColor: 'rgba(251, 61, 61, 1)',
+  borderRadius: '8px',
+  alignItems: 'center',
+  '& a': {
+    color: 'white',
+    display: 'block',
+    textDecoration: 'underline'
+  },
+  minWidth: '218px'
+}));
+
+const ContainerYellow = styled('div')(({ theme }) => ({
+  padding: '8px 12px 8px 12px',
+  display: 'flex',
+  flexGrow: 1,
+  backgroundColor: 'rgba(244, 111, 81, 1)',
+  borderRadius: '8px',
+  alignItems: 'center',
+  '& a': {
+    color: 'white',
+    display: 'block',
+    textDecoration: 'underline'
+  },
+  minWidth: '218px'
+}));
+
+const ContainerGreen = styled('div')(({ theme }) => ({
+  padding: '8px 12px 8px 12px',
+  display: 'flex',
+  flexGrow: 1,
+  backgroundColor: 'rgba(34, 34, 34, 1)',
+  borderRadius: '8px',
+  alignItems: 'center',
+  '& a': {
+    color: 'white',
+    display: 'block',
+    textDecoration: 'underline'
+  },
+  minWidth: '218px'
+}));
+
+const ContainerGray = styled('div')(({ theme }) => ({
+  padding: '8px 12px 8px 12px',
+  display: 'flex',
+  flexGrow: 1,
+  backgroundColor: 'rgba(34, 34, 34, 1)',
+  borderRadius: '8px',
   alignItems: 'center',
   '& a': {
     color: 'white',
@@ -42,28 +88,6 @@ const Icon = styled('img')(({ theme }) => ({
   display: 'inline-flex'
 }));
 
-const Tx = styled('div')(({ theme }) => ({
-  background: 'rgba(34, 34, 34, 1)',
-  display: 'flex',
-  alignItems: 'center'
-}));
-
-const Info = styled('div')(({ theme }) => ({
-  background: 'rgba(244, 111, 81, 1)',
-  display: 'flex',
-  alignItems: 'center'
-}));
-
-const Error = styled('div')(({ theme }) => ({
-  background: 'rgba(251, 61, 61, 1)'
-}));
-
-const Success = styled('div')(({ theme }) => ({
-  background: 'rgba(34, 34, 34, 1)',
-  display: 'flex',
-  alignItems: 'center'
-}));
-
 const Small = styled('span')(({ theme }) => ({
   color: 'white',
   fontSize: 14
@@ -77,13 +101,13 @@ const SmallOpacity = styled('span')(({ theme }) => ({
 
 const InfoContent = ({ notification }) => {
   return (
-    <Info>
+    <Wrapper>
       <Icon src="/notifications/info.svg" alt="info notification icon" />
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <Small>{notification.title}</Small>
         <Small>{notification.message}</Small>
       </div>
-    </Info>
+    </Wrapper>
   );
 };
 
@@ -91,7 +115,7 @@ const TxContent = ({ notification }) => {
   const link = `https://solscan.io/tx/${notification.hash}${IS_DEV ? '?cluster=devnet' : ''}`;
 
   return (
-    <Tx>
+    <Wrapper>
       <Icon src="/notifications/tx.svg" alt="tx notification icon" />
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <Small>{notification.description}</Small>
@@ -99,7 +123,7 @@ const TxContent = ({ notification }) => {
           <SmallOpacity>View on Explorer</SmallOpacity>
         </a>
       </div>
-    </Tx>
+    </Wrapper>
   );
 };
 
@@ -114,13 +138,13 @@ const ErrorContent = ({ notification }) => {
 
 const SuccessContent = ({ notification }) => {
   return (
-    <Success>
+    <Wrapper>
       <Icon src="/notifications/success.svg" alt="success notification icon" />
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
         <Small>{notification.title}</Small>
         <SmallOpacity>{notification.message}</SmallOpacity>
       </div>
-    </Success>
+    </Wrapper>
   );
 };
 
@@ -137,26 +161,23 @@ const Notification = ({ id, notification }) => {
 
   const Content = TYPES[notification.type] || InfoContent;
 
-  const notificationClass = useMemo(() => {
-    if (notification.status === 'success') {
-      return Success;
-    }
+  const NotificationContainer = useMemo(() => {
     const c = {
-      info: Info,
-      tx: Tx,
-      error: Error,
-      success: Success
+      info: ContainerYellow,
+      tx: ContainerGray,
+      error: ContainerRed,
+      success: ContainerGreen
     };
     return c[notification.type];
   }, [notification.type, notification.status]);
 
   return (
-    <StyledPaper className={clsx(notificationClass)} onClick={clearNotification}>
-      <Container>
+    <StyledPaper onClick={clearNotification}>
+      <NotificationContainer>
         <ContentContainer>
           <Content notification={notification} />
         </ContentContainer>
-      </Container>
+      </NotificationContainer>
     </StyledPaper>
   );
 };

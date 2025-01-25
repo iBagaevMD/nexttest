@@ -30,7 +30,7 @@ export const UserInfo = () => {
     if (network === WALLET_NAMES.COINBASE_SOLANA) return '/wallets/coinbase.png';
     if (network === WALLET_NAMES.TONKEEPER) return '/wallets/tonkeeper.png';
 
-    return '/logo.svg';
+    return '/wallets/logo.svg';
   }, [network]);
 
   useClickOutside(ref, () => {

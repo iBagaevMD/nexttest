@@ -33,6 +33,11 @@ export const SOLANA_MENU_LIST = {
       icon: '/menu/faq.svg',
       title: 'FAQ',
       link: '/solana/faq'
+    },
+    {
+      icon: '/icons/logout.svg',
+      title: 'Log Out',
+      link: '/logout'
     }
   ]
 };
@@ -67,6 +72,11 @@ export const TON_MENU_LIST = {
       icon: '/menu/faq.svg',
       title: 'FAQ',
       link: '/ton/faq'
+    },
+    {
+      icon: '/icons/logout.svg',
+      title: 'Log Out',
+      link: '/logout'
     }
   ]
 };
